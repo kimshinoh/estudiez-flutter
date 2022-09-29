@@ -24,7 +24,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   //Global Keys
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
+  final List<Map<String, String>> typesUser = [
+    {"name": "Parent/Guardian", "value": "parent"},
+    {"name": "Admin", "value": "admin"},
+    {"name": "Student", "value": "student"},
+    {"name": "Teacher", "value": "teacher"},
+  ];
   //Other Variables
   bool showPassword = false;
   bool isInProgress = false;
@@ -155,6 +160,41 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                         ),
                         Container(
+                          margin: Spacing.fromLTRB(24, 24, 24, 0),
+                          height: 50,
+                          child: DropdownButtonFormField(
+                            isExpanded: true,
+                            hint: Text(
+                              "User Type",
+                              style: AppTheme.getTextStyle(
+                                  themeData.textTheme.subtitle2,
+                                  letterSpacing: 0.1,
+                                  color: themeData.colorScheme.onBackground,
+                                  fontWeight: 500),
+                            ),
+                            items: typesUser.map((Map<String, String> value) {
+                              return DropdownMenuItem<String>(
+                                value: value["value"],
+                                child: Text(value["name"]),
+                              );
+                            }).toList(),
+                            onChanged: (String value) {
+                              print(value);
+                            },
+                            dropdownColor: customAppTheme.bgLayer1,
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.only(right: 16),
+                              border: allTFBorder,
+                              enabledBorder: allTFBorder,
+                              focusedBorder: allTFBorder,
+                              prefixIcon: Icon(
+                                MdiIcons.accountCircleOutline,
+                                size: MySize.size22,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
                           margin: Spacing.fromLTRB(24, 16, 24, 0),
                           child: TextFormField(
                             style: AppTheme.getTextStyle(
@@ -217,6 +257,35 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       : MdiIcons.eyeOffOutline,
                                   size: MySize.size22,
                                 ),
+                              ),
+                              isDense: true,
+                              contentPadding: Spacing.zero,
+                            ),
+                            controller: passwordTFController,
+                          ),
+                        ),
+                        Container(
+                          margin: Spacing.fromLTRB(24, 16, 24, 0),
+                          child: TextFormField(
+                            obscureText: showPassword,
+                            style: AppTheme.getTextStyle(
+                                themeData.textTheme.bodyText1,
+                                letterSpacing: 0.1,
+                                color: themeData.colorScheme.onBackground,
+                                fontWeight: 500),
+                            decoration: InputDecoration(
+                              hintStyle: AppTheme.getTextStyle(
+                                  themeData.textTheme.subtitle2,
+                                  letterSpacing: 0.1,
+                                  color: themeData.colorScheme.onBackground,
+                                  fontWeight: 500),
+                              hintText: "Confirm Password",
+                              border: allTFBorder,
+                              enabledBorder: allTFBorder,
+                              focusedBorder: allTFBorder,
+                              prefixIcon: Icon(
+                                MdiIcons.lockOutline,
+                                size: 22,
                               ),
                               isDense: true,
                               contentPadding: Spacing.zero,
