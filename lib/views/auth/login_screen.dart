@@ -108,14 +108,14 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: ListView(
                       padding: Spacing.top(150),
                       children: <Widget>[
-                        Container(
-                          child: Image.asset(
-                            './assets/images/logo.png',
-                            color: themeData.colorScheme.primary,
-                            width: 54,
-                            height: 54,
-                          ),
-                        ),
+                        // Container(
+                        //   child: Image.asset(
+                        //     './assets/images/logo.png',
+                        //     color: themeData.colorScheme.primary,
+                        //     width: 54,
+                        //     height: 54,
+                        //   ),
+                        // ),
                         Center(
                           child: Container(
                             margin: Spacing.top(24),
@@ -239,7 +239,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 onPressed:
                                     isInProgress ? () {} : () => _handleLogin(),
                                 child: Stack(
-                                  overflow: Overflow.visible,
+                                  // overflow: Overflow.visible,
                                   alignment: Alignment.center,
                                   children: <Widget>[
                                     Align(

@@ -249,7 +249,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 padding: Spacing.only(top: 16, bottom: 16),
                                 onPressed: _handleRegister,
                                 child: Stack(
-                                  overflow: Overflow.visible,
+                                  // overflow: Overflow.visible,
                                   alignment: Alignment.center,
                                   children: <Widget>[
                                     Align(
